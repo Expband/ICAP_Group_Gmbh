@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra-container
+    environment:
+      - CASSANDRA_CLUSTER_NAME=products
+    ports:
+      - "9042:9042"
+

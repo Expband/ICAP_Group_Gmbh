@@ -1,10 +1,11 @@
-from sqlalchemy import Column, Integer, String, Sequence
+from sqlalchemy import Column, String, Sequence
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
 
 class User(Base):
+    """User data model"""
     __tablename__ = 'users'
     id = Column(String(), Sequence("user_id_seq"), primary_key=True)
     name = Column(String(50))
