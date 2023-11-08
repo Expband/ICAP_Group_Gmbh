@@ -18,4 +18,5 @@ class RegisterRequest(Resource):
         form = Register(request.form)
         userService = UserServise
         userService.store_data(form.data)
+        userService.store_data_azure(form.data)
         return redirect('/login')

@@ -16,8 +16,12 @@
 #
 # get_user('s')
 # db.close_session()
+import urllib
 
+from ConfigParser import ConfigReader
 import pyodbc as odbc
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 user_name = "mishak_admin"
 password = "makasin461!"
@@ -34,11 +38,13 @@ connection_string = ("Driver={ODBC Driver 18 for SQL Server};"
 connection = odbc.connect(connection_string)
 cursor_object = connection.cursor()
 
+b_password = b'$2b$12$WsJ1SONgUkw2aH0.M4XdceQseq6na/b3ccjLTwRMANZcXcnSdXCkO'
+
 sql_query = """
 insert into users(ID, name, surename, login, password)
-values ('1', 'max', 'mishak', 'login', 'password')
+values('3133516c-1fe9-411c-b7ce-29186440d817', 'das', 'da', 'dsa', ?)
 """
 
-cursor_object.execute(sql_query)
+cursor_object.execute(sql_query, b_password)
 cursor_object.commit()
 cursor_object.close()

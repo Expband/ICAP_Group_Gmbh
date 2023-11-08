@@ -17,5 +17,9 @@ class LoginRequest(Resource):
     def post():
         form = Login(request.form)
         userservice = UserServise
-        if userservice.compare_passwords(form.data):
-            return "pass is ok"
+        if userservice.compare_passwords(form.data['password'], userservice.get_password_sqlite(form.data['login'])) and userservice.compare_passwords(form.data['password'], userservice.get_password_azure(form.data['login'])):
+            return "pass is ok in sqlite and azure"
+        if userservice.compare_passwords(form.data['password'], userservice.get_password_sqlite(form.data['login'])):
+            return "pass is ok in sqlite"
+        else:
+            return "pass not ok not in sqlite nor azure"

@@ -6,7 +6,6 @@ class UserRepository:
         self.session = session
 
     def sqlite_add_user(self, id, name, surename, login, password):
-        """"""
         new_user = User(id=id, name=name, surename=surename, login=login, password=password)
         self.session.add(new_user)
         self.session.commit()

@@ -8,5 +8,7 @@ class AzureDatabaseConnector:
         self.connection = odbc.connect(self.config.get_azure_string())
         self.cursor = self.connection.cursor()
 
+    def return_connector(self):
+        return self.cursor
     def close_session(self):
         self.cursor.close()

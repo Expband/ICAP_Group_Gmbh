@@ -10,9 +10,7 @@ class ConfigReader:
         self.__azure_db = self.config.get('Azure_SQL_connection', 'connection_string')
 
     def get_sqlite_string(self):
-        print(self.__sql_lite_string)
         return self.__sql_lite_string
 
     def get_azure_string(self):
-        print(self.__azure_db)
         return self.__azure_db
